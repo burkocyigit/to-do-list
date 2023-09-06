@@ -1,11 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,500&display=swap"
+      rel="stylesheet" />
     <title>To-Do List</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <header id="headertodo"><h1>To-Do List 📓</h1></header>
+    <div class="search-bar">🔎<input type="text" placeholder="Search" /></div>
+    <header class="header-attributes">
+      <table>
+        <tr>
+          <th>No.</th>
+          <th>Task</th>
+          <th>Status</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Finish Homework</td>
+          <td>Finished</td>
+          <td><span id="edit-btn">🖋️</span></td>
+          <td><span id="delete-btn">❌</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Go gym</td>
+          <td>Finished</td>
+          <td><span id="edit-btn">🖋️</span></td>
+          <td><span id="delete-btn">❌</span></td>
+        </tr>
+      </table>
+    </header>
+  </body>
 </html>
