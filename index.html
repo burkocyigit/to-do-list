@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="script.js"></script>
+    <script
+      src="https://kit.fontawesome.com/0b9f70fb92.js"
+      crossorigin="anonymous"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,500&display=swap"
       rel="stylesheet" />
@@ -13,9 +17,16 @@
   </head>
   <body>
     <header id="headertodo"><h1>To-Do List 📓</h1></header>
-    <div class="search-bar">🔎<input type="text" placeholder="Search" /></div>
+    <div class="search-bar">
+      <input id="search-input" type="text" placeholder="Search" />
+      <i class="fa-solid fa-magnifying-glass btn-search" onclick="search()"></i>
+    </div>
+    <div class="new-task">
+      <input type="text" placeholder="New" id="newTask" />
+      <i class="fa-solid fa-plus btn-new" onclick="addTask()"></i>
+    </div>
     <header class="header-attributes">
-      <table>
+      <table id="todoTable">
         <tr>
           <th>No.</th>
           <th>Task</th>

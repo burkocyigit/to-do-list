@@ -46,7 +46,8 @@ tr:nth-child(even) {
   background-color: #f0eaf3;
 }
 
-.search-bar {
+.search-bar,
+.new-task {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,7 +55,16 @@ tr:nth-child(even) {
   font-size: 24px;
 }
 
-.search-bar input {
+.search-bar i,
+.new-task i {
+  cursor: pointer;
+  margin-left: 1rem;
+  -webkit-transition: margin-left 0.35s ease-in-out;
+  transition: margin-left 0.35s ease-in-out;
+}
+
+.search-bar input,
+.new-task input {
   border: 1px solid #f0eaf3;
   border-radius: 8px;
   height: 2rem;
@@ -62,8 +72,27 @@ tr:nth-child(even) {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
-.search-bar input:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.search-bar i:hover {
+  margin-left: 1.2rem;
+}
+
+.new-task i:hover {
+  margin-left: 1.2rem;
+}
+
+input[type="text"]:focus {
+  width: 250px;
+}
+
+input[type="text"] {
+  width: 100px;
+  -webkit-transition: width 0.35s ease-in-out;
+  transition: width 0.35s ease-in-out;
+}
+
+#edit-btn,
+#delete-btn {
+  font-size: 20px;
 }
 
 #edit-btn:hover,
