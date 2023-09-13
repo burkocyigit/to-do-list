@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <script src="script.js"></script>
+
     <script
       src="https://kit.fontawesome.com/0b9f70fb92.js"
       crossorigin="anonymous"></script>
@@ -16,7 +16,9 @@
     <title>To-Do List</title>
   </head>
   <body>
-    <header id="headertodo"><h1>To-Do List 📓</h1></header>
+    <header id="headertodo">
+      <h1>To-Do List 📓</h1>
+    </header>
     <div class="search-bar">
       <input id="search-input" type="text" placeholder="Search" />
       <i class="fa-solid fa-magnifying-glass btn-search" onclick="search()"></i>
@@ -28,27 +30,14 @@
     <header class="header-attributes">
       <table id="todoTable">
         <tr>
-          <th>No.</th>
+          <th>No</th>
           <th>Task</th>
           <th>Status</th>
           <th>Edit</th>
           <th>Delete</th>
         </tr>
-        <tr>
-          <td>1</td>
-          <td>Finish Homework</td>
-          <td>Finished</td>
-          <td><span id="edit-btn">🖋️</span></td>
-          <td><span id="delete-btn" onclick="deleteTask(this)">❌</span></td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Go gym</td>
-          <td>Finished</td>
-          <td><span id="edit-btn">🖋️</span></td>
-          <td><span id="delete-btn" onclick="deleteTask(this)">❌</span></td>
-        </tr>
       </table>
     </header>
   </body>
+  <script src="script.js"></script>
 </html>
