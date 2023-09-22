@@ -1,3 +1,32 @@
+<?php 
+
+    include 'configure.php';
+
+    
+
+    if ($_POST) {
+        try {
+            $username = $_POST["email"];
+            $password = $_POST["password"];
+
+            $qry = $db->query("SELECT * FROM user WHERE (username='$username' AND password='$password')");
+            $rows = $qry->fetchAll(PDO::FETCH_ASSOC);
+
+            $numOfEntries = count($rows);
+
+            if ($numOfEntries > 0) {
+                echo "<script>alert('Success'); window.location.href='index.php'</script>";
+            } else {
+                echo "<script>alert('Failed'); window.location.href='login.php'</script>";
+
+            }
+        } catch (Exception $e) {
+            echo "Error:", $e->getMessage(), "\n";
+        }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,14 +60,14 @@
     ?>
 
     <div class="container pt-5">
-        <form action="/loginUser.php">
+        <form action="#" method="post">
             <div class="form-group">
                 <label for="email">Email Address:</label>
-                <input type="email" class="form-control" id="email">
+                <input type="email" class="form-control" name="email">
             </div>
             <div class="form-group">
                 <label for="pwd">Password:</label>
-                <input type="password" class="form-control" id="pwd">
+                <input type="password" class="form-control" name="password">
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
         </form>

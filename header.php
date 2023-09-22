@@ -13,11 +13,14 @@
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-between">
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
                 </a>
+                <a href="index.php" class="main-page">
+                    <h1>My Todo List</h1>
+                </a>
 
-                <h1>My Todo List</h1>
+
 
                 <div class="text-end">
-                    <a href="login.php"><button type="button" class="btn btn-outline-light me-2" onclick="login.php">
+                    <a href="login.php"><button type="button" class="btn btn-outline-light me-2">
                             Login
                         </button></a>
                     <a href="register.php"><button type="button" class="btn btn-warning">Sign-up</button></a>

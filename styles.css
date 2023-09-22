@@ -151,3 +151,14 @@ button {
   outline: none;
   background: none;
 }
+
+.main-page {
+  color: antiquewhite;
+  text-decoration: none;
+}
+
+.main-page:hover {
+  color: rgb(234, 214, 188);
+  cursor: pointer;
+  text-decoration: none;
+}

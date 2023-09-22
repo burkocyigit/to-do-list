@@ -1,3 +1,30 @@
+<?php 
+
+include 'configure.php';
+
+    if ($_POST) {
+        try {
+            $name = $_POST["name"];
+            $username = $_POST["email"];
+            $password = $_POST["password"];
+
+            $qry = $db->prepare('INSERT INTO user (name, username, password) VALUES (?, ?, ?)');
+            $qry->execute(array($name, $username, $password));
+
+            echo    "<script>
+                    window.location.href='index.php';
+                    </script>";
+        } catch (Exception $e) {
+            echo "Error:", $e->getMessage(), "\n";
+        }
+    }
+
+    
+        
+    
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,18 +57,18 @@
     include "header.php";
     ?>
     <div class="container pt-5">
-        <form action="/registerUser.php">
+        <form action="register.php" method="post">
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" class="form-control" id="name">
+                <input type="text" class="form-control" id="name" name="name">
             </div>
             <div class="form-group">
                 <label for="email">Email address:</label>
-                <input type="email" class="form-control" id="email">
+                <input type="email" class="form-control" id="email" name="email">
             </div>
             <div class="form-group">
                 <label for="pwd">Password:</label>
-                <input type="password" class="form-control" id="pwd">
+                <input type="password" class="form-control" id="pwd" name="password">
             </div>
             <button type="submit" class="btn btn-primary text-center">Sign Up</button>
         </form>
