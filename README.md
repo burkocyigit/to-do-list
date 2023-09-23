@@ -1,5 +1,5 @@
-# to-do-list
+# to-do-list-backend
 
-İlk Hafta Görevi - To-do List Frontend Application
+Üçüncü Hafta Görevi - To-do List Frontend-Backend Application
 
 <img src="https://siberyavuzlar.com/assets/img/logo/yavuzlar.png" alt="drawing" width="300"/>

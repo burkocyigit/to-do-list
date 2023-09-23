@@ -1,28 +1,24 @@
 <?php 
-
 include 'configure.php';
 
-    if ($_POST) {
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
         try {
             $name = $_POST["name"];
+
             $username = $_POST["email"];
+
             $password = $_POST["password"];
+            $password_hashed = password_hash($password, PASSWORD_DEFAULT);
 
             $qry = $db->prepare('INSERT INTO user (name, username, password) VALUES (?, ?, ?)');
-            $qry->execute(array($name, $username, $password));
+            $qry->execute(array($name, $username, $password_hashed));
 
-            echo    "<script>
-                    window.location.href='index.php';
-                    </script>";
+            header("Location: /index.php");
+
         } catch (Exception $e) {
             echo "Error:", $e->getMessage(), "\n";
         }
     }
-
-    
-        
-    
-
 ?>
 
 <!DOCTYPE html>

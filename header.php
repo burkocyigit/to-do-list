@@ -16,9 +16,6 @@
                 <a href="index.php" class="main-page">
                     <h1>My Todo List</h1>
                 </a>
-
-
-
                 <div class="text-end">
                     <a href="login.php"><button type="button" class="btn btn-outline-light me-2">
                             Login

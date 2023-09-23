@@ -4,17 +4,19 @@
 
     
 
-    if ($_POST) {
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
         try {
             $username = $_POST["email"];
             $password = $_POST["password"];
 
-            $qry = $db->query("SELECT * FROM user WHERE (username='$username' AND password='$password')");
+
+            $qry = $db->query("SELECT * FROM user WHERE (username='$username')");
             $rows = $qry->fetchAll(PDO::FETCH_ASSOC);
 
             $numOfEntries = count($rows);
+            $password_hashed = $rows[0]["password"];
 
-            if ($numOfEntries > 0) {
+            if ($numOfEntries > 0 && password_verify($password, $password_hashed)) {
                 echo "<script>alert('Success'); window.location.href='index.php'</script>";
             } else {
                 echo "<script>alert('Failed'); window.location.href='login.php'</script>";

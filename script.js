@@ -107,6 +107,7 @@ function retrieveList() {
 
   for (let i in retrievedList) {
     const table = document.getElementById("todoTable");
+
     const newRow = table.insertRow(table.rows.length);
     const taskNoCell = newRow.insertCell(0);
     const taskCell = newRow.insertCell(1);
@@ -131,7 +132,7 @@ function saveList() {
 
   todoList = [];
 
-  let no, taskName, taskStatus;
+  let no, taskName;
 
   for (let i = 1; i < rows.length; i++) {
     no = rows[i].querySelector("td:nth-child(1)").innerHTML;
@@ -165,8 +166,6 @@ function saveList() {
       taskStatus: taskStatus,
     });
   }
-
-  localStorage.setItem("listArray", JSON.stringify(todoList));
-
-  console.log(typeof JSON.parse(localStorage.getItem("listArray")));
+  // Local Storage
+  // localStorage.setItem("listArray", JSON.stringify(todoList));
 }
