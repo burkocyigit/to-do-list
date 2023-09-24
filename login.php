@@ -1,6 +1,6 @@
 <?php 
 
-    include 'configure.php';
+    include 'includes/dbh.inc.php';
 
     
 
@@ -17,9 +17,9 @@
             $password_hashed = $rows[0]["password"];
 
             if ($numOfEntries > 0 && password_verify($password, $password_hashed)) {
-                echo "<script>alert('Success'); window.location.href='index.php'</script>";
+                header("Location: ./index.php");
             } else {
-                echo "<script>alert('Failed'); window.location.href='login.php'</script>";
+                echo "<script>alert('Login Failed'); window.location.href='login.php'</script>";
 
             }
         } catch (Exception $e) {
@@ -62,7 +62,7 @@
     ?>
 
     <div class="container pt-5">
-        <form action="#" method="post">
+        <form action="includes/login.inc.php" method="post">
             <div class="form-group">
                 <label for="email">Email Address:</label>
                 <input type="email" class="form-control" name="email">

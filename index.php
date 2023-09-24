@@ -1,10 +1,14 @@
+<?php
+session_start()
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -26,7 +30,7 @@
 </head>
 
 <body>
-    <?php  
+    <?php
     include "header.php";
     ?>
     <div class="search-bar">
@@ -50,5 +54,10 @@
     </header>
 </body>
 <script src="script.js"></script>
+
+<?php
+require_once 'includes/signup_view.inc.php';
+check_signup_errors()
+    ?>
 
 </html>
