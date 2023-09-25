@@ -39,6 +39,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         create_user($db, $name, $email, $password_hashed);
 
+        require_once 'config_session.inc.php';
+
+        $_SESSION["user_email"] = $email;
+        $_SESSION["user_name"] = $name;
+
         header("Location: ../index.php?signup=success");
 
         $db = null;

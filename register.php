@@ -33,8 +33,7 @@ require_once 'includes/signup_view.inc.php';
 
 <body>
     <?php
-    include "header.php";
-    ?>
+    include "includes/header.php"; ?>
 
     <div class="container pt-5">
         <form action="includes/signup.inc.php" method="post">
@@ -56,14 +55,6 @@ require_once 'includes/signup_view.inc.php';
         <?php
         check_signup_errors();
         ?>
-
-        <script>
-            setTimeout(function () {
-                var divToHide = document.getElementById("success-alert");
-                divToHide.style.display = "none";
-            }, 1000);
-        </script>
-
     </div>
 </body>
 

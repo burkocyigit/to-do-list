@@ -1,31 +1,7 @@
-<?php 
-
-    include 'includes/dbh.inc.php';
-
-    
-
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        try {
-            $username = $_POST["email"];
-            $password = $_POST["password"];
+<?php
 
 
-            $qry = $db->query("SELECT * FROM user WHERE (username='$username')");
-            $rows = $qry->fetchAll(PDO::FETCH_ASSOC);
 
-            $numOfEntries = count($rows);
-            $password_hashed = $rows[0]["password"];
-
-            if ($numOfEntries > 0 && password_verify($password, $password_hashed)) {
-                header("Location: ./index.php");
-            } else {
-                echo "<script>alert('Login Failed'); window.location.href='login.php'</script>";
-
-            }
-        } catch (Exception $e) {
-            echo "Error:", $e->getMessage(), "\n";
-        }
-    }
 
 ?>
 
@@ -35,7 +11,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -57,12 +33,12 @@
 </head>
 
 <body>
-    <?php  
-    include "header.php";
+    <?php
+    include "includes/header.php";
     ?>
 
     <div class="container pt-5">
-        <form action="includes/login.inc.php" method="post">
+        <form action="login.inc.php" method="post">
             <div class="form-group">
                 <label for="email">Email Address:</label>
                 <input type="email" class="form-control" name="email">
@@ -75,5 +51,9 @@
         </form>
     </div>
 </body>
+<?php
+require_once 'includes/login_view.inc.php';
+check_login_errors();
+?>
 
 </html>

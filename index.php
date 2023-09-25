@@ -31,7 +31,7 @@ session_start()
 
 <body>
     <?php
-    include "header.php";
+    include "includes/header.php";
     ?>
     <div class="search-bar">
         <input id="search-input" class="form-control" type="text" placeholder="Search" />
@@ -53,11 +53,14 @@ session_start()
         </table>
     </header>
 </body>
-<script src="script.js"></script>
+<script src="js/script.js"></script>
 
 <?php
 require_once 'includes/signup_view.inc.php';
-check_signup_errors()
-    ?>
+require_once 'includes/login_view.inc.php';
+check_signup_errors();
+check_login_errors();
+output_user();
+?>
 
 </html>
