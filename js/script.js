@@ -1,7 +1,5 @@
 const statusArr = ["In Progress", "Finished", "Cancelled", "Postponed"];
-let todoList = [];
 let i = 0;
-retrieveList();
 
 let btn = document.getElementById("newTask");
 btn.addEventListener("keypress", function (event) {
@@ -42,8 +40,6 @@ function addTask() {
 
     document.getElementById("newTask").value = "";
   } else alert("Please enter a task.");
-
-  saveList();
 }
 
 function changeStatus(status) {
@@ -100,4 +96,54 @@ function search() {
       }
     }
   }
+}
+
+function saveTableData() {
+  const rows = document.getElementById("todoTable").rows;
+  const tableData = [];
+
+  let no, taskName, taskStatus;
+
+  for (let i = 1; i < rows.length; i++) {
+    no = rows[i].querySelector("td:nth-child(1)").innerHTML;
+    taskName = rows[i]
+      .querySelector("td:nth-child(2)")
+      .querySelector("input[type='text']").value;
+    const taskStatusName = rows[i].querySelector("td:nth-child(3)").innerText;
+    switch (taskStatusName) {
+      case "In Progress":
+        taskStatus = 0;
+        break;
+      case "Finished":
+        taskStatus = 1;
+        break;
+      case "Cancelled":
+        taskStatus = 2;
+        break;
+      case "Postponed":
+        taskStatus = 3;
+        break;
+    }
+    const rowData = {
+      taskNo: no,
+      taskName: taskName,
+      taskStatus: taskStatus,
+    };
+
+    tableData.push(rowData);
+  }
+
+  const jsonData = JSON.stringify(tableData);
+
+  $.ajax({
+    type: "POST",
+    url: "includes/save_list.inc.php",
+    data: { dataArray: jsonData },
+    success: function (response) {
+      console.log(response);
+    },
+    error: function (xhr, status, error) {
+      console.error(xhr, status, error);
+    },
+  });
 }

@@ -19,27 +19,20 @@ require_once 'includes/login_view.inc.php';
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
+        </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://kit.fontawesome.com/0b9f70fb92.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,500&display=swap" rel="stylesheet" />
     <title>To-Do List</title>
 </head>
 
 <body>
-    <script>
-    document.querySelector("form").addEventListener("submit", function() {
-        // Get the HTML content of the page
-        var htmlContent = document.documentElement.outerHTML;
-        // Set the HTML content as the value of the hidden input field
-        document.querySelector("#html_content").value = htmlContent;
-    });
-    </script>
     <?php
     include "includes/header.php";
     ?>
@@ -48,15 +41,12 @@ require_once 'includes/login_view.inc.php';
         <i class="fa-solid fa-magnifying-glass btn-search" onclick="search()"></i>
     </div>
     <div class="new-task">
+
         <input type="text" class="form-control" placeholder="New" id="newTask" />
         <i class="fa-solid fa-plus btn-new" onclick="addTask()"></i>
+
     </div>
-    <div class="container">
-        <form action="includes/save_list.inc.php" method="post">
-            <input type="hidden" name="html_content" id="html_content">
-            <button type="submit">Save</button>
-        </form>
-    </div>
+    <button class="btn-primary" onclick="saveTableData()">Save</button>
     <header class="header-attributes">
         <table id="todoTable" class="table">
             <tr>
@@ -70,9 +60,6 @@ require_once 'includes/login_view.inc.php';
     </header>
 </body>
 <script src="js/script.js"></script>
-
-
-
 <?php
 
 check_signup_errors();

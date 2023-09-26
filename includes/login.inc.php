@@ -35,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $_SESSION["user_email"] = $result[0]["email"];
         $_SESSION["user_name"] = $result[0]["name"];
+        $_SESSION["user_id"] = $result[0]["id"];
         header("Location: ../index.php?login=success");
         die();
 
