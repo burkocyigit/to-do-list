@@ -1,12 +1,11 @@
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve the HTML content from the hidden input field
+
     $htmlContent = $_POST["html_content"];
 
     print_r($htmlContent);
 
-    // Optionally, you can display a confirmation message
     echo "HTML content posted and saved.";
 }
 function tdrows($elements)
