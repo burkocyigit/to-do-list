@@ -38,7 +38,7 @@
     ?>
 
     <div class="container pt-5">
-        <form action="login.inc.php" method="post">
+        <form action="includes/login.inc.php" method="post">
             <div class="form-group">
                 <label for="email">Email Address:</label>
                 <input type="email" class="form-control" name="email">

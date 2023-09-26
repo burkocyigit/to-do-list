@@ -1,4 +1,5 @@
 <?php
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $email = $_POST["email"];
@@ -32,16 +33,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         require_once 'config_session.inc.php';
 
-
         $_SESSION["user_email"] = $result[0]["email"];
         $_SESSION["user_name"] = $result[0]["name"];
-
         header("Location: ../index.php?login=success");
+        die();
+
     } catch (Exception $e) {
         die("Login Failed: " . $e->getMessage());
     }
 
 } else {
-    header("Location: ../login.php");
+    header("Location: /login.php");
     die();
 }

@@ -1,6 +1,8 @@
 <?php
-session_start()
-    ?>
+require_once 'includes/config_session.inc.php';
+require_once 'includes/signup_view.inc.php';
+require_once 'includes/login_view.inc.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,6 +32,14 @@ session_start()
 </head>
 
 <body>
+    <script>
+    document.querySelector("form").addEventListener("submit", function() {
+        // Get the HTML content of the page
+        var htmlContent = document.documentElement.outerHTML;
+        // Set the HTML content as the value of the hidden input field
+        document.querySelector("#html_content").value = htmlContent;
+    });
+    </script>
     <?php
     include "includes/header.php";
     ?>
@@ -40,6 +50,12 @@ session_start()
     <div class="new-task">
         <input type="text" class="form-control" placeholder="New" id="newTask" />
         <i class="fa-solid fa-plus btn-new" onclick="addTask()"></i>
+    </div>
+    <div class="container">
+        <form action="includes/save_list.inc.php" method="post">
+            <input type="hidden" name="html_content" id="html_content">
+            <button type="submit">Save</button>
+        </form>
     </div>
     <header class="header-attributes">
         <table id="todoTable" class="table">
@@ -55,9 +71,10 @@ session_start()
 </body>
 <script src="js/script.js"></script>
 
+
+
 <?php
-require_once 'includes/signup_view.inc.php';
-require_once 'includes/login_view.inc.php';
+
 check_signup_errors();
 check_login_errors();
 output_user();

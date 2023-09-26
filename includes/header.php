@@ -18,24 +18,25 @@
                 <?php
 
                 if (!isset($_SESSION['user_email'])) { ?>
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-sm-center">
                     <form action="login.php"><button type="submit" class="btn btn-outline-light me-2">
                             Login
                         </button></form>
+                </div>
                 <?php } ?>
 
                 <?php
 
                 if (isset($_SESSION['user_email'])) { ?>
-                    <form action="includes/logout.inc.php"><button type="submit" class="btn btn-outline-light me-2 ml-30">
-                            Logout
-                        </button></form>
+                <form action="includes/logout.inc.php"><button type="submit" class="btn btn-outline-light me-2 ml-30">
+                        Logout
+                    </button></form>
                 <?php } ?>
                 <div class="text-end">
 
                     <form action="register.php"><button type="submit" class="btn btn-warning">Sign-up</button></form>
                 </div>
             </div>
-        </div>
     </header>
 </body>
 

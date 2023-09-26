@@ -33,7 +33,7 @@ function addTask() {
     const deleteCell = newRow.insertCell(4);
 
     taskNoCell.innerHTML = table.rows.length - 1;
-    taskCell.innerHTML = `<input type='text' id='tableTask' value='${task}' readonly /> `;
+    taskCell.innerHTML = `<input type='text' id='tableTask' name='taskName' value='${task}' readonly /> `;
     statusCell.innerHTML = `<span id="status" onclick="changeStatus(this)">${statusArr[0]}</span>`;
     editCell.innerHTML =
       "<span id='edit-btn' onclick='editTask(this)'>🖋️</span>";
@@ -100,72 +100,4 @@ function search() {
       }
     }
   }
-}
-
-function retrieveList() {
-  const retrievedList = JSON.parse(localStorage.getItem("listArray"));
-
-  for (let i in retrievedList) {
-    const table = document.getElementById("todoTable");
-
-    const newRow = table.insertRow(table.rows.length);
-    const taskNoCell = newRow.insertCell(0);
-    const taskCell = newRow.insertCell(1);
-    const statusCell = newRow.insertCell(2);
-    const editCell = newRow.insertCell(3);
-    const deleteCell = newRow.insertCell(4);
-
-    taskNoCell.innerHTML = i;
-    taskCell.innerHTML = `<input type='text' id='tableTask' value='${retrievedList[i].taskName}' readonly /> `;
-    statusCell.innerHTML = `<span id="status" onclick="changeStatus(this)">${
-      statusArr[retrievedList[i].taskStatus]
-    }</span>`;
-    editCell.innerHTML =
-      "<span id='edit-btn' onclick='editTask(this)'>🖋️</span>";
-    deleteCell.innerHTML =
-      "<span id='delete-btn' onclick='deleteTask(this)'>❌</span>";
-  }
-}
-
-function saveList() {
-  const rows = document.getElementById("todoTable").rows;
-
-  todoList = [];
-
-  let no, taskName;
-
-  for (let i = 1; i < rows.length; i++) {
-    no = rows[i].querySelector("td:nth-child(1)").innerHTML;
-
-    taskName = rows[i]
-      .querySelector("td:nth-child(2)")
-      .querySelector("input[type='text']").value;
-
-    const taskStatusName = rows[i].querySelector("td:nth-child(3)").innerText;
-
-    let taskStatus = 0;
-
-    switch (taskStatusName) {
-      case "In Progress":
-        taskStatus = 0;
-        break;
-      case "Finished":
-        taskStatus = 1;
-        break;
-      case "Cancelled":
-        taskStatus = 2;
-        break;
-      case "Postponed":
-        taskStatus = 3;
-        break;
-    }
-
-    todoList.push({
-      no: no,
-      taskName: taskName,
-      taskStatus: taskStatus,
-    });
-  }
-  // Local Storage
-  // localStorage.setItem("listArray", JSON.stringify(todoList));
 }
