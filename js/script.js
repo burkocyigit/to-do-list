@@ -1,5 +1,6 @@
 const statusArr = ["In Progress", "Finished", "Cancelled", "Postponed"];
 let i = 0;
+retrieveTableData();
 
 let btn = document.getElementById("newTask");
 btn.addEventListener("keypress", function (event) {
@@ -141,6 +142,27 @@ function saveTableData() {
     data: { dataArray: jsonData },
     success: function (response) {
       console.log(response);
+    },
+    error: function (xhr, status, error) {
+      console.error(xhr, status, error);
+    },
+  });
+}
+
+function retrieveTableData() {
+  const data = {
+    retrieve: true,
+  };
+
+  $.ajax({
+    type: "POST",
+    url: "includes/save_list.inc.php",
+    data: { retrieveData: data },
+    success: function (response) {
+      var script = document.createElement("script");
+      script.text = response;
+      console.log(script);
+      document.head.appendChild(script);
     },
     error: function (xhr, status, error) {
       console.error(xhr, status, error);

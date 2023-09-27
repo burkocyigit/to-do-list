@@ -2,6 +2,7 @@
 require_once 'includes/config_session.inc.php';
 require_once 'includes/signup_view.inc.php';
 require_once 'includes/login_view.inc.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -19,17 +20,17 @@ require_once 'includes/login_view.inc.php';
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-        </script>
+    </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-        </script>
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-        </script>
+    </script>
     <script src="https://kit.fontawesome.com/0b9f70fb92.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,500&display=swap" rel="stylesheet" />
-    <title>To-Do List</title>
+    <title>Yavuzlar To-Do List</title>
 </head>
 
 <body>
@@ -46,7 +47,9 @@ require_once 'includes/login_view.inc.php';
         <i class="fa-solid fa-plus btn-new" onclick="addTask()"></i>
 
     </div>
-    <button class="btn-primary" onclick="saveTableData()">Save</button>
+    <div class="container text-center mb-3">
+        <button class="btn btn-outline-success" onclick="saveTableData()">Save</button>
+    </div>
     <header class="header-attributes">
         <table id="todoTable" class="table">
             <tr>
@@ -61,6 +64,7 @@ require_once 'includes/login_view.inc.php';
 </body>
 <script src="js/script.js"></script>
 <?php
+
 
 check_signup_errors();
 check_login_errors();

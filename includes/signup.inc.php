@@ -43,8 +43,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $_SESSION["user_email"] = $email;
         $_SESSION["user_name"] = $name;
+        $_SESSION["user_id"] = 2;
 
-        header("Location: ../index.php?signup=success");
+        header("Location: ../login.php");
 
         $db = null;
 

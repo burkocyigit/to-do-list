@@ -3,12 +3,17 @@
 function output_user()
 {
     if (isset($_SESSION["user_email"])) {
-        echo "You are logged in as " . $_SESSION['user_name'];
+        echo '<div class="container alert alert-info text-center" role="alert" id="success-alert">' .
+            'Welcome ' . $_SESSION['user_name'] .
+            '!</div>';
     } else {
-        echo "You are not logged in.";
+        echo '<div class="container alert alert-warning text-center" role="alert" id="success-alert">' .
+            'You are not logged in.' .
+            '</div>';
     }
 
 }
+
 function check_login_errors()
 {
     if (isset($_SESSION['errors_login'])) {
